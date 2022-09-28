@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
 	fstream file1;
-	file1.open("Numbers.txt");
+	file1.open("Practice1_Numbers_20220914.txt");
 	int sample[4][5];
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 5; j++) {
