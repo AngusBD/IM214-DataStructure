@@ -134,7 +134,7 @@ public:
 
 int main()
 {
-	file.open("sparse_matrix.txt");
+	file.open("Practice3_sparse_matrix.txt");
 	int a[10][12], b[10][12];
 	char judge;
 	if (!file) {
