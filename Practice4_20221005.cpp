@@ -49,7 +49,7 @@ public:
 	//請完成下方函式 Popped value:
 	void Pop() {
 		if(IsEmpty() == false){
-			cout << stack[top--];
+			cout << "Popped value : "<< stack[top--] << endl;
 		}
 		else{
 			cout << "Stack is empty." << endl;
