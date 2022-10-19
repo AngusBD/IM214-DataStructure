@@ -24,8 +24,7 @@ public:
 			cout << "Queue is full." << endl;
 		}
 		else{
-			rear++;
-			if(rear == capacity){
+			if(++rear == capacity){
 				rear = 0;
 			}
 			data[rear] = x;
@@ -36,11 +35,10 @@ public:
 			cout << "Queue is empty." << endl;
 		}
 		else{
-			front++;
-			if(front == capacity){
+			if(++front == capacity){
 				front = 0;
 			}
-			data[front] = 0;
+			data[front] = NULL;
 		}
 		return data[front];
 	}
