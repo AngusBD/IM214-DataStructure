@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <ctime>
 #include <cstdlib>
 using namespace std;
@@ -30,10 +30,10 @@ public:
 		}
 		cout << endl;
 	}
-	void bubbleSortDecending(int);
-	void selectionSortDecending(int);
-	void maxHeapSort(int);
-	void maxHeapify(int, int);
+	void bubbleSortDescending(int);
+	void selectionSortDescending(int);
+	void minHeapSort(int);
+	void minHeapify(int, int);
 
 };
 void swap(int& a, int& b) {
@@ -45,7 +45,7 @@ void swap(int& a, int& b) {
 
 
 
-void Sorting::bubbleSortDecending(int top) {
+void Sorting::bubbleSortDescending(int top) {
 	for(int i = 0; i < top - 1; i++){
 		for(int j = 0; j < top - i - 1; j++){
 			if(sortArray[j] < sortArray[j+1]){
@@ -55,7 +55,7 @@ void Sorting::bubbleSortDecending(int top) {
 	}
 }
 
-void Sorting::selectionSortDecending(int top) {
+void Sorting::selectionSortDescending(int top) {
 	for (int i = 0; i < top - 1; i++) {
         int max = i;
         for (int j = i + 1; j < top; j++) {
@@ -69,20 +69,20 @@ void Sorting::selectionSortDecending(int top) {
     }
 }
 
-void Sorting::maxHeapSort(int top) {
-	for (int i = top / 2 - 1; i >= 0; i--) //把樹調整成Max Heap
+void Sorting::minHeapSort(int top) {
+	for (int i = top / 2 - 1; i >= 0; i--) //把樹調整成Min Heap
 	{
-		maxHeapify(i, top - 1);
+		minHeapify(i, top - 1);
 	}
 	//把最上面的節點( root ) 跟最後面的節點交換位置，
-	//把交換位置後的樹轉成 Max Heap
+	//把交換位置後的樹轉成 Min Heap
 	for (int i = top - 1; i > 0; i--)
 	{
 		swap(sortArray[0], sortArray[i]);
-		maxHeapify(0, i - 1);
+		minHeapify(0, i - 1);
 	}
 }
-void Sorting::maxHeapify(int start, int end) {
+void Sorting::minHeapify(int start, int end) {
 	int parent = start;
 	int child = parent * 2 + 1;
 	while (child <= end) //若子節點在範圍內才做比較
@@ -108,17 +108,17 @@ int main()
 
 	Sorting sorting;
 
-	//bubbleSortDecending
+	//bubbleSortDescending
 	start = clock();
-	sorting.bubbleSortDecending(MAX);
+	sorting.bubbleSortDescending(MAX);
 	finish = clock();
 	double bubble = (double)(finish - start) / CLOCKS_PER_SEC;
 	// sorting.printArray();
 	sorting.reset();
 
-	//selectionSortDecending
+	//selectionSortDescending
 	start = clock();
-	sorting.selectionSortDecending(MAX);
+	sorting.selectionSortDescending(MAX);
 	finish = clock();
 	double select = (double)(finish - start) / CLOCKS_PER_SEC;
 	// sorting.printArray();
@@ -126,7 +126,7 @@ int main()
 
 	//maxHeapSort
 	start = clock();
-	sorting.maxHeapSort(MAX);
+	sorting.minHeapSort(MAX);
 	finish = clock();
 	double heap = (double)(finish - start) / CLOCKS_PER_SEC;
 	// sorting.printArray();
